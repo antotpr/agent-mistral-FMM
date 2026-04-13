@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FMM Agent — Structurer les campagnes B2B plus vite</title>
-  <meta name="description" content="Un assistant IA qui transforme un brief marketing en plan de campagne structuré. Emails, UTMs, briefs créa — sans repartir de zéro." />
+  <title>FMM Agent — Transformez vos briefs marketing en campagnes structurées</title>
+  <meta name="description" content="Un agent IA pensé pour les équipes marketing B2B — structure les briefs, détecte les imprécisions et génère les assets clés sans repartir de zéro." />
   <style>
     /* ── Reset ────────────────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -127,7 +127,11 @@
     .hero h1 em { font-style: normal; color: var(--accent); }
     .hero-sub {
       font-size: 18px; color: var(--muted);
-      max-width: 520px; margin: 0 auto 44px; line-height: 1.6;
+      max-width: 520px; margin: 0 auto 18px; line-height: 1.6;
+    }
+    .hero-impact {
+      font-size: 14px; font-weight: 600; color: var(--text);
+      max-width: 440px; margin: 0 auto 44px; opacity: .8;
     }
     .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
@@ -274,6 +278,35 @@
     }
     .footer-links a:hover { color: #94a3b8; }
 
+    /* ── Exemple ─────────────────────────────────────────────────────────── */
+    .example-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      margin-top: 48px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--r-lg); overflow: hidden;
+    }
+    .example-in  { padding: 32px; border-right: 1px solid var(--border); }
+    .example-out { padding: 32px; }
+    .example-col-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .example-col-label--in  { color: var(--muted); }
+    .example-col-label--out { color: var(--accent); }
+    .example-quote {
+      font-size: 15px; color: var(--text); font-style: italic;
+      line-height: 1.65; padding: 16px 20px;
+      background: var(--surface); border-radius: var(--r);
+      border-left: 3px solid var(--border);
+    }
+    .example-rows { display: flex; flex-direction: column; gap: 14px; }
+    .example-row { display: flex; flex-direction: column; gap: 3px; }
+    .example-row-key {
+      font-size: 11px; font-weight: 700; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .example-row-val { font-size: 14px; color: var(--text); line-height: 1.5; }
+
     /* ── Responsive ───────────────────────────────────────────────────────── */
     @media (max-width: 700px) {
       .hero { padding: 64px 0 56px; }
@@ -283,6 +316,8 @@
       .context-inner  { grid-template-columns: 1fr; gap: 32px; }
       .context-aside  { position: static; }
       .footer-inner   { flex-direction: column; align-items: flex-start; }
+      .example-card   { grid-template-columns: 1fr; }
+      .example-in     { border-right: none; border-bottom: 1px solid var(--border); }
     }
   </style>
 </head>
@@ -300,7 +335,7 @@
           <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
         </a>
-        <a href="chat.html" class="nav-cta">Accéder à l'agent →</a>
+        <a href="chat.html" class="nav-cta">Tester l'agent →</a>
       </div>
     </div>
   </nav>
@@ -308,11 +343,12 @@
   <!-- ── Hero ───────────────────────────────────────────────────────────── -->
   <section class="hero">
     <div class="wrap">
-      <div class="hero-badge">Prototype · Marketing B2B</div>
-      <h1>Structurez vos campagnes B2B <em>plus vite.</em></h1>
+      <div class="hero-badge">Agent IA — Field Marketing</div>
+      <h1>Transformez un brief flou en campagne <em>marketing structurée.</em></h1>
       <p class="hero-sub">
-        Un assistant IA qui transforme un brief marketing en plan de campagne structuré — avec les assets opérationnels, sans repartir de zéro.
+        Un agent IA pensé pour les équipes marketing B2B — structure les briefs, détecte les imprécisions et génère les assets clés sans repartir de zéro.
       </p>
+      <p class="hero-impact">Arrêtez de repartir de zéro à chaque campagne.</p>
       <div class="hero-actions">
         <a href="chat.html" class="btn-primary">
           Tester avec votre brief
@@ -459,6 +495,42 @@
     </div>
   </section>
 
+  <!-- ── Exemple concret ──────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="wrap">
+      <p class="label">Exemple</p>
+      <h2 class="title">Ce que ça donne concrètement.</h2>
+      <p class="sub">Un brief en entrée. Un plan structuré en sortie.</p>
+      <div class="example-card">
+        <div class="example-in">
+          <div class="example-col-label example-col-label--in">Brief d'entrée</div>
+          <p class="example-quote">"Lancer un webinar sur la facture électronique pour sensibiliser nos prospects DAF avant la fin d'année."</p>
+        </div>
+        <div class="example-out">
+          <div class="example-col-label example-col-label--out">Ce que l'agent produit</div>
+          <div class="example-rows">
+            <div class="example-row">
+              <span class="example-row-key">Cible</span>
+              <span class="example-row-val">DAF de PME, 50–500 salariés, multi-secteurs</span>
+            </div>
+            <div class="example-row">
+              <span class="example-row-key">Message</span>
+              <span class="example-row-val">Conformité obligatoire + gain de temps opérationnel</span>
+            </div>
+            <div class="example-row">
+              <span class="example-row-key">Assets</span>
+              <span class="example-row-val">Email d'invitation · Page d'inscription · Rappel J-2 · UTMs</span>
+            </div>
+            <div class="example-row">
+              <span class="example-row-key">Cadre</span>
+              <span class="example-row-val">Séquence 3 emails · Ton institutionnel · Naming structuré</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Contexte de création ───────────────────────────────────────────── -->
   <section class="section section--alt">
     <div class="wrap-wide">
@@ -467,17 +539,16 @@
           <p class="label">Contexte</p>
           <h2 class="title">Pourquoi cet outil a été créé.</h2>
           <p>J'ai développé FMM Agent pendant mon alternance dans une équipe marketing B2B. À chaque nouvelle campagne, je constatais le même problème : structurer un brief, construire les UTMs, rédiger les emails, préparer les briefs créa — des tâches répétitives qui mobilisaient un temps disproportionné par rapport à leur valeur stratégique.</p>
-          <p>L'objectif n'était pas de créer un outil <em>"révolutionnaire"</em>, mais de <strong>résoudre un problème concret</strong> avec les outils disponibles. Cet agent est une démonstration de ma capacité à identifier un besoin terrain, à le formaliser et à le traduire en solution utilisable.</p>
-          <p>Il est construit sur l'API Mistral, déployé sans infrastructure complexe — pour rester simple, maintenable et démontrable.</p>
+          <p>L'objectif n'était pas de créer un outil <em>"révolutionnaire"</em>, mais de <strong>résoudre un problème concret</strong>. Cet agent illustre ma capacité à identifier un besoin terrain, à le formaliser et à le traduire en solution utilisable.</p>
+          <p>Il est accessible librement — pour être testé sur un vrai brief, pas seulement présenté.</p>
         </div>
         <div class="context-aside">
-          <div class="context-aside-label">Stack technique</div>
+          <div class="context-aside-label">En pratique</div>
           <div class="context-stack">
-            <div class="context-tag"><div class="context-tag-dot"></div>Mistral AI — moteur conversationnel</div>
-            <div class="context-tag"><div class="context-tag-dot"></div>FastAPI — backend Python</div>
-            <div class="context-tag"><div class="context-tag-dot"></div>HTML / CSS / JS — frontend</div>
-            <div class="context-tag"><div class="context-tag-dot"></div>Hébergement statique — GitHub Pages</div>
-            <div class="context-tag"><div class="context-tag-dot"></div>Render — API déployée</div>
+            <div class="context-tag"><div class="context-tag-dot"></div>Besoin identifié en contexte terrain réel</div>
+            <div class="context-tag"><div class="context-tag-dot"></div>Conçu et développé en autonomie</div>
+            <div class="context-tag"><div class="context-tag-dot"></div>Déployé et testable en accès libre</div>
+            <div class="context-tag"><div class="context-tag-dot"></div>Aucune donnée utilisateur stockée</div>
           </div>
         </div>
       </div>
@@ -494,7 +565,7 @@
         Décrivez votre campagne en quelques phrases — l'agent structure, questionne et produit.
       </p>
       <a href="chat.html" class="btn-white">
-        Accéder à l'agent
+        Tester avec votre brief
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -506,8 +577,8 @@
       <div class="disclaimer-inner">
         <span class="disclaimer-icon">ℹ️</span>
         <div class="disclaimer-text">
-          <h4>Version prototype — usage limité</h4>
-          <p>Cet outil est un prototype personnel développé à titre démonstratif. Les performances dépendent de la disponibilité de l'API Mistral et des quotas en vigueur. Il n'est pas conçu pour un usage intensif ou en production. Aucune donnée n'est stockée — les conversations restent dans le navigateur.</p>
+          <h4>Accès libre — version bêta</h4>
+          <p>Cet outil est une démonstration personnelle, accessible librement. Les performances dépendent de la disponibilité de l'API et des quotas en vigueur. Il n'est pas conçu pour un usage intensif. Aucune donnée n'est stockée — les conversations restent dans le navigateur.</p>
         </div>
       </div>
     </div>
@@ -518,7 +589,7 @@
     <div class="wrap-wide">
       <div class="footer-inner">
         <div class="footer-left">
-          <strong>Antoine Taprest</strong> · Prototype personnel · 2026
+          <strong>Antoine Taprest</strong> · Démonstration personnelle · 2026
         </div>
         <div class="footer-links">
           <a href="https://www.linkedin.com/in/antoinetaprest/" target="_blank" rel="noopener">
