@@ -80,6 +80,25 @@
       background: var(--color-accent);
       border-radius: 50%;
     }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-linkedin {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      padding: 7px 14px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      transition: color .2s, border-color .2s;
+    }
+    .nav-linkedin:hover { color: #0a66c2; border-color: #0a66c2; }
     .nav-cta {
       background: var(--color-accent);
       color: #fff;
@@ -165,30 +184,6 @@
     }
     .btn-secondary:hover { border-color: #94a3b8; transform: translateY(-1px); }
 
-    /* ── Bande contexte ───────────────────────────────────────────────────── */
-    .context-band {
-      background: var(--color-dark);
-      color: #fff;
-      padding: 48px 0;
-    }
-    .context-inner {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 32px;
-      text-align: center;
-    }
-    .context-item strong {
-      display: block;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--color-accent);
-      margin-bottom: 4px;
-    }
-    .context-item span {
-      font-size: 13px;
-      color: #94a3b8;
-    }
-
     /* ── Sections communes ────────────────────────────────────────────────── */
     section { padding: 72px 0; }
     section:nth-child(even) { background: var(--color-surface); }
@@ -247,45 +242,6 @@
       font-size: 14px;
       color: var(--color-text-muted);
       line-height: 1.6;
-    }
-
-    /* ── Why section ──────────────────────────────────────────────────────── */
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-    }
-    @media (max-width: 640px) {
-      .why-grid { grid-template-columns: 1fr; gap: 32px; }
-    }
-    .why-content p {
-      color: var(--color-text-muted);
-      margin-bottom: 16px;
-      font-size: 15px;
-    }
-    .why-content p:last-child { margin-bottom: 0; }
-    .why-content strong { color: var(--color-text); }
-    .why-quote {
-      background: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-left: 4px solid var(--color-accent);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 24px 28px;
-    }
-    .why-quote p {
-      font-size: 15px;
-      font-style: italic;
-      color: var(--color-dark);
-      line-height: 1.65;
-    }
-    .why-quote cite {
-      display: block;
-      margin-top: 12px;
-      font-size: 13px;
-      font-style: normal;
-      color: var(--color-text-muted);
-      font-weight: 600;
     }
 
     /* ── Cas d'usage ──────────────────────────────────────────────────────── */
@@ -431,7 +387,6 @@
     @media (max-width: 600px) {
       .hero { padding: 56px 0 48px; }
       .hero-sub { font-size: 16px; }
-      .context-inner { grid-template-columns: 1fr 1fr; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -445,7 +400,13 @@
         <span class="nav-brand-dot"></span>
         FMM Agent
       </a>
-      <a href="chat.html" class="nav-cta">Tester l'agent →</a>
+      <div class="nav-right">
+        <a href="https://www.linkedin.com/in/antoinetaprest/" target="_blank" rel="noopener" class="nav-linkedin">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="chat.html" class="nav-cta">Tester l'agent →</a>
+      </div>
     </div>
   </nav>
 
@@ -462,37 +423,9 @@
           Tester l'agent
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="https://github.com/antotpr/agent-mistral-FMM" target="_blank" rel="noopener" class="btn-secondary">
-          Voir le code
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        </a>
       </div>
     </div>
   </section>
-
-  <!-- ── Bande chiffres / contexte ──────────────────────────────────────── -->
-  <div class="context-band">
-    <div class="container">
-      <div class="context-inner">
-        <div class="context-item">
-          <strong>B2B</strong>
-          <span>Logique métier intégrée</span>
-        </div>
-        <div class="context-item">
-          <strong>SaaS · ERP · Finance</strong>
-          <span>Secteurs couverts</span>
-        </div>
-        <div class="context-item">
-          <strong>Emails · UTMs · Briefs</strong>
-          <span>Assets générés</span>
-        </div>
-        <div class="context-item">
-          <strong>Mistral AI</strong>
-          <span>Moteur conversationnel</span>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- ── Ce que fait l'agent ────────────────────────────────────────────── -->
   <section>
@@ -527,33 +460,6 @@
           <span class="feature-icon">🔄</span>
           <h3>Conversation continue</h3>
           <p>L'agent retient le contexte de la conversation. Affinez, précisez ou demandez une variante sans tout recommencer.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Pourquoi je l'ai construit ─────────────────────────────────────── -->
-  <section>
-    <div class="container">
-      <p class="section-label">Contexte</p>
-      <h2 class="section-title">Pourquoi j'ai construit cet agent</h2>
-      <div class="why-grid">
-        <div class="why-content">
-          <p>
-            En alternance dans une équipe marketing B2B, j'ai constaté un problème récurrent : <strong>chaque nouvelle campagne repartait quasiment de zéro</strong>. Structurer un brief, construire les UTMs, rédiger les emails, préparer les briefs créa — des tâches chronophages qui sollicitent les mêmes réflexes stratégiques, encore et encore.
-          </p>
-          <p>
-            L'idée n'était pas de remplacer le travail de réflexion, mais d'<strong>éliminer le temps perdu sur les tâches mécaniques</strong> : mise en forme, nomenclature, vérification des paramètres de tracking, reformulation des briefs pour les équipes créa.
-          </p>
-          <p>
-            Ce projet est aussi une démonstration de ma capacité à <strong>transformer un besoin terrain en outil concret</strong> — en combinant compréhension métier, prompt engineering et développement web.
-          </p>
-        </div>
-        <div>
-          <div class="why-quote">
-            <p>"Le brief est là, les assets sont là — il faut juste qu'ils soient propres, cohérents et utilisables immédiatement. C'est ce que cet agent cherche à produire."</p>
-            <cite>— Antoine Taprest, alternant marketing B2B</cite>
-          </div>
         </div>
       </div>
     </div>
@@ -638,10 +544,6 @@
           <a href="https://www.linkedin.com/in/antoinetaprest" target="_blank" rel="noopener">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
-          </a>
-          <a href="https://github.com/antotpr/agent-mistral-FMM" target="_blank" rel="noopener">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub
           </a>
           <a href="chat.html">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
