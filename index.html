@@ -429,17 +429,8 @@ if(__exports != exports)module.exports = exports;return module.exports}));
   // ─── Main send function ────────────────────────────────────────────────────
   async function sendMessage() {
     const message = userInput.value.trim();
-    const email   = emailInput.value.trim();
 
     if (!message) return;
-    if (!email) {
-      addMessage("Veuillez renseigner votre email avant d'envoyer un message.", "error");
-      emailInput.focus();
-      return;
-    }
-
-    // Save email
-    localStorage.setItem("user_email", email);
 
     // Display user message
     addMessage(message, "user");
