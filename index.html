@@ -336,12 +336,11 @@ if(__exports != exports)module.exports = exports;return module.exports}));
   </header>
 
   <div id="identity-bar">
-    <input id="email-input" type="email" placeholder="Votre email (identifiant)" />
     <button id="reset-btn" title="Démarrer une nouvelle conversation">↺ Nouvelle conv.</button>
   </div>
 
   <div id="messages">
-    <div class="msg assistant">Bonjour ! Renseignez votre email puis posez-moi une question.</div>
+    <div class="msg assistant">Bonjour ! Comment puis-je vous aider ?</div>
   </div>
 
   <div id="input-area">
@@ -363,11 +362,7 @@ if(__exports != exports)module.exports = exports;return module.exports}));
   const messagesEl  = document.getElementById("messages");
   const userInput   = document.getElementById("user-input");
   const sendBtn     = document.getElementById("send-btn");
-  const emailInput  = document.getElementById("email-input");
   const resetBtn    = document.getElementById("reset-btn");
-
-  // Restore email from localStorage
-  emailInput.value = localStorage.getItem("user_email") || "";
 
   // ─── Helpers ───────────────────────────────────────────────────────────────
   function scrollBottom() {
@@ -458,7 +453,6 @@ if(__exports != exports)module.exports = exports;return module.exports}));
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email,
           message,
           conversation_id: conversationId || undefined,
         }),

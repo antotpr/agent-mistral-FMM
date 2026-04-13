@@ -31,9 +31,9 @@ AGENT_ID = "ag_019d86923391777ca69093336e269310"
 
 
 class ChatRequest(BaseModel):
-    email: str
     message: str
     conversation_id: Optional[str] = None
+    email: Optional[str] = None  # conservé pour compatibilité, non utilisé
 
 
 class ChatResponse(BaseModel):
@@ -52,10 +52,7 @@ async def chat(request: ChatRequest):
     if not request.message.strip():
         raise HTTPException(status_code=400, detail="Le message ne peut pas être vide.")
 
-    if not request.email.strip():
-        raise HTTPException(status_code=400, detail="L'email est requis.")
-
-    headers = {
+headers = {
         "Authorization": f"Bearer {MISTRAL_API_KEY}",
         "Content-Type": "application/json",
         "Accept": "application/json",
@@ -66,14 +63,14 @@ async def chat(request: ChatRequest):
     if request.conversation_id:
         url  = f"{MISTRAL_API_URL}/{request.conversation_id}"
         body = {"inputs": [{"role": "user", "content": request.message}]}
-        logger.info("Continuation conversation %s pour %s", request.conversation_id, request.email)
+        logger.info("Continuation conversation %s", request.conversation_id)
     else:
         url  = MISTRAL_API_URL
         body = {
             "agent_id": AGENT_ID,
             "inputs": [{"role": "user", "content": request.message}],
         }
-        logger.info("Nouvelle conversation pour %s", request.email)
+        logger.info("Nouvelle conversation")
 
     async with httpx.AsyncClient(timeout=60.0) as client:
         try:
