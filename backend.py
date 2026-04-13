@@ -149,7 +149,7 @@ def _extract_reply(data: dict) -> str:
 
 @app.get("/")
 def root():
-    return {"message": "API Mistral Chat — backend opérationnel", "docs": "/docs"}
+    return {"message": "API Mistral Chat - backend OK", "docs": "/docs", "chat": "/chat"}
 
 @app.get("/health")
 def health():
