@@ -147,6 +147,10 @@ def _extract_reply(data: dict) -> str:
     return ""
 
 
+@app.get("/")
+def root():
+    return {"message": "API Mistral Chat — backend opérationnel", "docs": "/docs"}
+
 @app.get("/health")
 def health():
     api_key_set = bool(MISTRAL_API_KEY)
